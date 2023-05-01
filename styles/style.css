@@ -1,0 +1,95 @@
+/*General Styles*/
+
+* {
+    font-family: "Roboto", arial, sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+
+html {
+    scroll-behavior: smooth;
+
+}
+
+body {
+    background-color: #fff;
+    color: #202124;
+    direction: ltr;
+    font-size: 15px;
+    margin: 0;
+    min-width: 360px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
+}
+
+
+/*------ Help Classes ------*/
+
+.spacing-layer {
+    padding: 15px;
+
+}
+
+.d-none {
+    display: none !important;
+
+}
+
+/*------ Header ------*/
+
+header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    height: 80px
+}
+
+.header-spacing {
+    align-items: center;
+    flex-flow: row nowrap;
+    height: 100%;
+    padding: 15px;
+    display: flex;
+    width: 100%;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    max-width: 20%;
+    flex: 1 1 20%;
+}
+
+.header-headline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 60%;
+    flex: 1 1 60%;
+}
+
+.header-items {
+    display: flex;
+    align-items: center;
+    max-width: 20%;
+    flex: 1 1 20%;
+
+}
+
+.header-language {
+    display: flex;
+    width: 48px;
+    height: 48px;
+
+}
+
+.header-language img {
+    object-fit: cover;
+    border-radius: 200px;
+    -moz-border-radius: 200px;
+    -webkit-border-radius: 200px
+}
