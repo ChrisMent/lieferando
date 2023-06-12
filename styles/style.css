@@ -611,7 +611,6 @@ main {
   transition-property: transform, -webkit-transform;
   width: 100%;
   z-index: 1;
-  overflow: auto;
 }
 
 .swiper-wrapper li {
@@ -624,15 +623,13 @@ main {
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  overflow: auto;
 }
 .restaurant-menu-content-category {
   cursor: grab;
-  overflow: auto;
 }
 
 .restaurant-menu-content {
-  overflow: auto;
+  overflow: scroll;
 }
 
 .swiper-wrapper-container:hover {
@@ -645,7 +642,6 @@ main {
   border-top-right-radius: 50rem;
   border-bottom-right-radius: 50rem;
   border-bottom-left-radius: 50rem;
-  overflow: auto;
 }
 
 /*------ Warenkorb Desktop ------*/

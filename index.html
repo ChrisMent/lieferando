@@ -143,17 +143,18 @@
                             </div>
 
                             <div class="restaurant-menu-categories">
-                                <div id="category-scroll-left" class="restaurant-menu-arrow-left">
+                                <div onclick="scrollLeft()" id="category-scroll-left"
+                                    class="restaurant-menu-arrow-left">
                                     <div>
                                         <img src="/lieferando/img/arrow-left.svg" alt="">
                                     </div>
                                 </div>
 
-                                <div class="restaurant-menu-content">
+                                <div id="outsider" class="restaurant-menu-content">
 
                                     <div class="restaurant-menu-content-spacing">
                                         <div class="restaurant-menu-content-category">
-                                            <ul class="swiper-wrapper">
+                                            <ul id="scroll-content" class="swiper-wrapper">
                                                 <div class="swiper-wrapper-container">
                                                     <li>Beliebt</li>
                                                 </div>
@@ -205,7 +206,8 @@
 
                                 </div>
 
-                                <div id="category-scroll-right" class="restaurant-menu-arrow-right">
+                                <div onclick="scrollRight()" id="category-scroll-right"
+                                    class="restaurant-menu-arrow-right">
                                     <div>
                                         <img src="/lieferando/img/arrow-right.svg" alt="">
                                     </div>
