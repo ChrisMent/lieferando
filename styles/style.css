@@ -26,7 +26,7 @@ body {
 /*------ Help Classes ------*/
 
 .spacing-layer {
-  padding: 15px;
+  padding: 0 16px 0 16px;
 }
 
 .d-none {
@@ -37,6 +37,15 @@ body {
   max-width: 960px;
   margin: 0 auto;
   width: 100%;
+}
+
+/*------ Variables ------*/
+
+:root {
+  --hover-1: rgba(0, 0, 0, 0.04);
+  --hover-2: rgba(0, 0, 0, 0.08);
+  --xds-spacing-f: 32px;
+  --xds-spacing-c: 12px;
 }
 
 /*------ Header ------*/
@@ -366,7 +375,7 @@ main {
 }
 
 .restaurant-functions div:hover {
-  background-color: #d1d1d1;
+  background-color: var(--hover-2);
 }
 
 .restaurant-functions div {
@@ -498,7 +507,7 @@ main {
 }
 
 .restaurant-menu-search-icon:hover {
-  background-color: #d1d1d1;
+  background-color: var(--hover-2);
 }
 
 .restaurant-menu-categories {
@@ -518,9 +527,10 @@ main {
   position: absolute;
   top: 0;
   user-select: none;
-  width: calc(32px + 12px);
+  width: calc(var(--xds-spacing-f) + var(--xds-spacing-c));
   z-index: 1;
   align-items: center;
+  background-color: #fff;
 }
 
 .restaurant-menu-arrow-left div {
@@ -535,7 +545,7 @@ main {
 }
 
 .restaurant-menu-arrow-left div:hover {
-  background-color: #d1d1d1;
+  background-color: var(--hover-2);
 }
 
 .restaurant-menu-arrow-right {
@@ -546,9 +556,10 @@ main {
   position: absolute;
   top: 0;
   user-select: none;
-  width: calc(32px - 12px);
+  width: calc(var(--xds-spacing-f) + var(--xds-spacing-c));
   z-index: 1;
   align-items: center;
+  background-color: #fff;
 }
 
 .restaurant-menu-arrow-right img {
@@ -568,7 +579,7 @@ main {
 }
 
 .restaurant-menu-arrow-right div:hover {
-  background-color: #d1d1d1;
+  background-color: var(--hover-2);
 }
 
 .restaurant-menu-arrow-left img {
@@ -584,6 +595,8 @@ main {
   z-index: 0;
   height: calc((8px) * 7);
   padding: calc((4px) * 3) 0;
+  display: flex;
+  align-items: center;
 }
 
 .swiper-wrapper {
@@ -598,6 +611,7 @@ main {
   transition-property: transform, -webkit-transform;
   width: 100%;
   z-index: 1;
+  overflow: auto;
 }
 
 .swiper-wrapper li {
@@ -607,9 +621,31 @@ main {
   height: 100%;
   position: relative;
   cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  overflow: auto;
 }
 .restaurant-menu-content-category {
   cursor: grab;
+  overflow: auto;
+}
+
+.restaurant-menu-content {
+  overflow: auto;
+}
+
+.swiper-wrapper-container:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.swiper-wrapper-container {
+  padding: 5px 12px;
+  border-top-left-radius: 50rem;
+  border-top-right-radius: 50rem;
+  border-bottom-right-radius: 50rem;
+  border-bottom-left-radius: 50rem;
+  overflow: auto;
 }
 
 /*------ Warenkorb Desktop ------*/
