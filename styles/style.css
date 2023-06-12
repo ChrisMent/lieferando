@@ -33,6 +33,12 @@ body {
   display: none !important;
 }
 
+.page-section {
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+
 /*------ Header ------*/
 
 header {
@@ -447,6 +453,163 @@ main {
   height: 16px;
   width: 16px;
   margin-right: 4px;
+}
+
+/*------ Restaurant Menu ------*/
+
+.restaurant-menu-wrapper {
+  min-height: 56px;
+  align-items: center;
+  display: flex;
+  padding: 0 16px;
+}
+
+.restaurant-menu-items {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
+}
+
+.restaurant-menu-search {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  height: 100%;
+}
+
+.restaurant-menu-search-icon {
+  margin-right: 4px;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  background-color: #f5f3f1;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.restaurant-menu-search-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.restaurant-menu-search-icon:hover {
+  background-color: #d1d1d1;
+}
+
+.restaurant-menu-categories {
+  overflow: hidden;
+  width: 100%;
+  min-height: 56px;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.restaurant-menu-arrow-left {
+  justify-content: flex-start;
+  left: 0;
+  display: flex;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  user-select: none;
+  width: calc(32px + 12px);
+  z-index: 1;
+  align-items: center;
+}
+
+.restaurant-menu-arrow-left div {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f3f1;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.restaurant-menu-arrow-left div:hover {
+  background-color: #d1d1d1;
+}
+
+.restaurant-menu-arrow-right {
+  justify-content: flex-end;
+  right: 0;
+  display: flex;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  user-select: none;
+  width: calc(32px - 12px);
+  z-index: 1;
+  align-items: center;
+}
+
+.restaurant-menu-arrow-right img {
+  height: 32px;
+  width: 32px;
+}
+
+.restaurant-menu-arrow-right div {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f3f1;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.restaurant-menu-arrow-right div:hover {
+  background-color: #d1d1d1;
+}
+
+.restaurant-menu-arrow-left img {
+  height: 32px;
+  width: 32px;
+}
+
+.restaurant-menu-content-spacing {
+  width: calc((100% - 32px) * 2 - (12px) * 2);
+  margin-left: calc(32px + 12px);
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  height: calc((8px) * 7);
+  padding: calc((4px) * 3) 0;
+}
+
+.swiper-wrapper {
+  transform: translate3d(-181.073px, 0px, 0px);
+  transition-duration: 0ms;
+  display: flex;
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  transition-property: transform, -webkit-transform;
+  width: 100%;
+  z-index: 1;
+}
+
+.swiper-wrapper li {
+  margin-right: 8px;
+  width: auto;
+  flex-shrink: 0;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+}
+.restaurant-menu-content-category {
+  cursor: grab;
 }
 
 /*------ Warenkorb Desktop ------*/
