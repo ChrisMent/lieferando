@@ -25,6 +25,10 @@ body {
 
 /*------ Help Classes ------*/
 
+.spacer {
+  height: 2000px;
+}
+
 .spacing-layer {
   padding: 0 16px 0 16px;
 }
@@ -466,6 +470,16 @@ main {
 
 /*------ Restaurant Menu ------*/
 
+.restaurant-menu-nav {
+  margin-bottom: 10px;
+  transform: translateZ(0px);
+  top: 0px;
+  width: 1175.2px;
+  position: sticky;
+  z-index: 1000;
+  background-color: #fff;
+}
+
 .restaurant-menu-wrapper {
   min-height: 56px;
   align-items: center;
@@ -548,7 +562,7 @@ main {
   background-color: var(--hover-2);
 }
 
-.restaurant-menu-arrow-right {
+#category-scroll-right {
   justify-content: flex-end;
   right: 0;
   display: flex;
@@ -562,12 +576,12 @@ main {
   background-color: #fff;
 }
 
-.restaurant-menu-arrow-right img {
+#category-scroll-right img {
   height: 32px;
   width: 32px;
 }
 
-.restaurant-menu-arrow-right div {
+#category-scroll-right div {
   height: 32px;
   width: 32px;
   display: flex;
@@ -578,11 +592,11 @@ main {
   cursor: pointer;
 }
 
-.restaurant-menu-arrow-right div:hover {
+#category-scroll-right div:hover {
   background-color: var(--hover-2);
 }
 
-.restaurant-menu-arrow-left img {
+#category-scroll-left img {
   height: 32px;
   width: 32px;
 }
@@ -616,20 +630,26 @@ main {
 .swiper-wrapper li {
   margin-right: 8px;
   width: auto;
-  flex-shrink: 0;
   height: 100%;
   position: relative;
   cursor: pointer;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
+  white-space: nowrap;
 }
 .restaurant-menu-content-category {
   cursor: grab;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
 }
 
-.restaurant-menu-content {
-  overflow: scroll;
+#outsider {
+  overflow: auto;
+}
+
+.restaurant-menu-content::-webkit-scrollbar {
+  display: none;
 }
 
 .swiper-wrapper-container:hover {
@@ -642,6 +662,11 @@ main {
   border-top-right-radius: 50rem;
   border-bottom-right-radius: 50rem;
   border-bottom-left-radius: 50rem;
+}
+
+.restaurant-description {
+  margin-top: 10px;
+  color: #3c4c4f;
 }
 
 /*------ Warenkorb Desktop ------*/
