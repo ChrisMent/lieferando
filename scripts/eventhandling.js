@@ -145,3 +145,35 @@ menuWrapper.addEventListener('scroll', function() {
   }
 });
 
+
+fetch("/lieferando/ressources/data.json")
+.then((response) => {
+return response.json();
+})
+.then((meals) => {
+
+  meals.forEach((meal) => {
+
+    // Erstellen Sie eine Variable für den Container basierend auf der Kategorie des aktuellen Elements
+    const containerId = meal.category.replace(/ /g, ""); // Entfernen Sie Leerzeichen aus dem Kategorienamen, um eine gültige ID zu erhalten
+    const container = document.getElementById(containerId);
+
+    // Überprüfen Sie, ob der Container existiert, bevor Sie Elemente hinzufügen
+    if (container) {
+
+      const tmpl = document.getElementById('meal-card-template').content.cloneNode(true);
+
+      tmpl.querySelector('.meal').innerText = meal.meal;
+      tmpl.querySelector('.desc1').innerText = meal.desc1 ? meal.desc1 : '';
+      tmpl.querySelector('.desc2').innerText = meal.desc2 ? meal.desc2 : '';
+      tmpl.querySelector('.price').innerText = meal.price ? meal.price.toFixed(2).replace(".", ",") + " €" : '';
+      tmpl.querySelector('.addInfo').innerText = meal.addInfo ? meal.addInfo : '';
+      if (meal.img) tmpl.querySelector('.img').setAttribute('src', meal.img);
+
+      container.appendChild(tmpl);
+    }
+
+  })
+
+});
+

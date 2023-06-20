@@ -851,8 +851,32 @@ main {
   padding-top: 26px;
 }
 
+.restaurant-meals-image {
+  padding-top: 16px;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 12px;
+  height: 12rem;
+}
+
+.restaurant-meals-image img {
+  object-fit: cover;
+  max-width: 100%;
+  border-radius: 12px;
+}
+
 .restaurant-meals-headlines {
+  margin-top: 16px;
+}
+
+.headline-meal {
   margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.headline-meal p {
+  font-size: 12px;
+  line-height: 24px;
 }
 
 .restaurant-meals-items-wrapper {
@@ -958,10 +982,6 @@ main {
 .meals-list-element-btn img {
   height: 30px;
   width: 30px;
-}
-
-.meals-list-box-price {
-  font-size: 14px;
 }
 
 .meals-list-price-price {
