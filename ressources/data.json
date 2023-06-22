@@ -133,7 +133,7 @@
    },
    {
       "id":12,
-      "category":"Spezialitäten vom Grill",
+      "category":"Spezialitäten-vom-Grill",
       "meal":"Kebab Morgh ba Qabeli",
       "desc1":"mit braunem Basmatireis, Rosinen, Mandeln und Karottenstreifen",
       "desc2":null,
@@ -145,7 +145,7 @@
    },
    {
       "id":13,
-      "category":"Spezialitäten vom Grill",
+      "category":"Spezialitäten-vom-Grill",
       "meal":"Kebab Morgh ba Narenj",
       "desc1":"mit gesüßtem Safranreis, Orangenschalen und Mandeln",
       "desc2":null,
@@ -157,7 +157,7 @@
    },
    {
       "id":14,
-      "category":"Spezialitäten vom Grill",
+      "category":"Spezialitäten-vom-Grill",
       "meal":"Kebab Morgh ba Samarod",
       "desc1":"mit gebackenem Basmatireis und Spinat",
       "desc2":null,
@@ -169,7 +169,7 @@
    },
    {
       "id":15,
-      "category":"Spezialitäten vom Grill",
+      "category":"Spezialitäten-vom-Grill",
       "meal":"Kebab Morgh ba Tschalau",
       "desc1":"mit weißen Basmatireis",
       "desc2":null,
@@ -181,7 +181,7 @@
    },
    {
       "id":16,
-      "category":"Rindfleisch Spezialitäten",
+      "category":"Rindfleisch-Spezialitäten",
       "meal":"Kofta Qabeli",
       "desc1":"mit gebackenem braunem Basmatireis, Rosinen, Mandeln und Karottenstreifen",
       "desc2":null,
@@ -193,7 +193,7 @@
    },
    {
       "id":17,
-      "category":"Rindfleisch Spezialitäten",
+      "category":"Rindfleisch-Spezialitäten",
       "meal":"Kofta Naren",
       "desc1":"mit gesüßtem Safranreis, Mandeln und Orangenschalen",
       "desc2":null,
@@ -205,7 +205,7 @@
    },
    {
       "id":18,
-      "category":"Hühnerfleisch Spezialitäten",
+      "category":"Hühnerfleisch-Spezialitäten",
       "meal":"Qorme Tschalau",
       "desc1":"mit Tomatensauce, Linsen und weißem Basmatireis",
       "desc2":null,
@@ -217,7 +217,7 @@
    },
    {
       "id":19,
-      "category":"Hühnerfleisch Spezialitäten",
+      "category":"Hühnerfleisch-Spezialitäten",
       "meal":"Qorme Narenj",
       "desc1":"mit gesüßtem Safranreis, Orangenschalen und Mandeln",
       "desc2":null,
@@ -229,7 +229,7 @@
    },
    {
       "id":20,
-      "category":"Hühnerfleisch Spezialitäten",
+      "category":"Hühnerfleisch-Spezialitäten",
       "meal":"Qorme Qabeli",
       "desc1":"mit braunem Basmatireis, Rosinen, Mandeln und Karottenstreifen",
       "desc2":null,
@@ -241,7 +241,7 @@
    },
    {
       "id":21,
-      "category":"Hühnerfleisch Spezialitäten",
+      "category":"Hühnerfleisch-Spezialitäten",
       "meal":"Qorme Samarod",
       "desc1":"mit gebackenem Basmatireis und Spinat",
       "desc2":null,
@@ -253,7 +253,7 @@
    },
    {
       "id":22,
-      "category":"Lamm Spezialitäten",
+      "category":"Lamm-Spezialitäten",
       "meal":"Do Piaza",
       "desc1":"gekochtes Lammfleisch mit scharfer Tomaten-Linsensauce",
       "desc2":null,
@@ -265,7 +265,7 @@
    },
    {
       "id":23,
-      "category":"Lamm Spezialitäten",
+      "category":"Lamm-Spezialitäten",
       "meal":"Kebab Tecka ba Qabeli",
       "desc1":"gegrilltes Lammfilet mit braunem Basmatireis, Rosinen, Mandeln und Karottenstreifen",
       "desc2":null,
@@ -277,7 +277,7 @@
    },
    {
       "id":24,
-      "category":"Lamm Spezialitäten",
+      "category":"Lamm-Spezialitäten",
       "meal":"Kebab Tecka ba Narenj",
       "desc1":"gegrilltes Lammfilet mit gesüßtem Safranreis, Orangenschalen und Mandeln",
       "desc2":null,
@@ -289,7 +289,7 @@
    },
    {
       "id":25,
-      "category":"Lamm Spezialitäten",
+      "category":"Lamm-Spezialitäten",
       "meal":"Kebab Tecka ba Samarod",
       "desc1":"gegrilltes Lammfilet mit gebackenem Basmatireis und Spinat",
       "desc2":null,
@@ -301,7 +301,7 @@
    },
    {
       "id":26,
-      "category":"Lamm Spezialitäten",
+      "category":"Lamm-Spezialitäten",
       "meal":"Kebab Tecka ba Tschalau",
       "desc1":"gegrilltes Lammfilet mit gebackenem weißen Basmatireis",
       "desc2":null,
@@ -313,7 +313,7 @@
    },
    {
       "id":27,
-      "category":"Teigtaschen Spezialitäten",
+      "category":"Teigtaschen-Spezialitäten",
       "meal":"Manto",
       "desc1":"mit Rindfleisch und Zwiebeln",
       "desc2":null,
@@ -325,7 +325,7 @@
    },
    {
       "id":28,
-      "category":"Teigtaschen Spezialitäten",
+      "category":"Teigtaschen-Spezialitäten",
       "meal":"Aschack",
       "desc1":"mit Lauch",
       "desc2":null,
@@ -337,7 +337,7 @@
    },
    {
       "id":29,
-      "category":"Vegetarische Spezialitäten",
+      "category":"Vegetarische-Spezialitäten",
       "meal":"Qabeli Palau",
       "desc1":"gebackener brauner Basmatireis mit Rosinen, Mandeln und Karottenstreifen",
       "desc2":"Wahl aus: mit Aubergine, mit Gemüse, mit Spinat oder ohne Beilage.",
@@ -349,7 +349,7 @@
    },
    {
       "id":30,
-      "category":"Vegetarische Spezialitäten",
+      "category":"Vegetarische-Spezialitäten",
       "meal":"Narenj Palau",
       "desc1":"gesüßter Safranreis mit Orangenschalen und Mandeln",
       "desc2":"Wahl aus: mit Aubergine, mit Gemüse, mit Spinat oder ohne Beilage.",
@@ -361,7 +361,7 @@
    },
    {
       "id":31,
-      "category":"Vegetarische Spezialitäten",
+      "category":"Vegetarische-Spezialitäten",
       "meal":"Tschalau",
       "desc1":"gebackener weißer Basmatireis",
       "desc2":"Wahl aus: mit Aubergine, mit Gemüse, mit Spinat oder ohne Beilage.",
@@ -373,7 +373,7 @@
    },
    {
       "id":32,
-      "category":"Vegetarische Spezialitäten",
+      "category":"Vegetarische-Spezialitäten",
       "meal":"Samarod plau",
       "desc1":"gebackener Spinatreis",
       "desc2":"Wahl aus: mit Aubergine, mit Gemüse oder ohne Beilage.",
@@ -553,7 +553,7 @@
    },
    {
       "id":47,
-      "category":"Alkoholfreie Getränke",
+      "category":"Alkoholfreie-Getränke",
       "meal":"Coca-Cola 1,0l (MEHRWEG)",
       "desc1":"Coca-Cola steht für einzigartigen Geschmack, Erfrischung und Momente voller Lebensfreude. Die 1,0l PET Mehrwegflasche für die perfekte Erfrischung für jeden Tag - allein oder zu zweit.",
       "desc2":null,
@@ -565,7 +565,7 @@
    },
    {
       "id":48,
-      "category":"Alkoholfreie Getränke",
+      "category":"Alkoholfreie-Getränke",
       "meal":"Coca-Cola light taste 1,0l (MEHRWEG)",
       "desc1":"Light taste: Leichter als das Original und in stylischem Design überzeugt Cola Light nicht nur die eigene Fangemeinschaft - und das komplett zucker- und kalorienfrei.",
       "desc2":null,
@@ -577,7 +577,7 @@
    },
    {
       "id":49,
-      "category":"Alkoholfreie Getränke",
+      "category":"Alkoholfreie-Getränke",
       "meal":"Fanta Orange 1,0l (MEHRWEG)",
       "desc1":"Trinke Fanta. Lebe bunter. Spritzig erfrischend begleitet die originale Fanta Orange jede Lebenssituation und macht jetzt noch mehr Spaß.",
       "desc2":null,
@@ -589,7 +589,7 @@
    },
    {
       "id":50,
-      "category":"Alkoholfreie Getränke",
+      "category":"Alkoholfreie-Getränke",
       "meal":"Mezzo Mix 1,0l (MEHRWEG)",
       "desc1":"Mixt euch eine gute Zeit mit Mezzo Mix, dem erfrischend-leckeren Kuss aus Cola und Orange.",
       "desc2":null,
@@ -601,7 +601,7 @@
    },
    {
       "id":51,
-      "category":"Alkoholfreie Getränke",
+      "category":"Alkoholfreie-Getränke",
       "meal":"Sprite 1,0l (MEHRWEG)",
       "desc1":"Bist du bereit für Sprite? Die einzigartige Formel aus grünen Limetten und sonnengelben Zitronen erfrischt dich maximal.",
       "desc2":null,
@@ -613,7 +613,7 @@
    },
    {
       "id":52,
-      "category":"Alkoholfreie Getränke",
+      "category":"Alkoholfreie-Getränke",
       "meal":"Lift Apfelschorle 1,0l (MEHRWEG)",
       "desc1":"Die Lift Apfelschorle begeistert mit ihrem einmaligen Geschmack und maximaler Erfrischung.",
       "desc2":null,
@@ -625,7 +625,7 @@
    },
    {
       "id":53,
-      "category":"Alkoholfreie Getränke",
+      "category":"Alkoholfreie-Getränke",
       "meal":"Mineralwasser 1,0l",
       "desc1":null,
       "desc2":null,
@@ -637,7 +637,7 @@
    },
    {
       "id":54,
-      "category":"Alkoholische Getränke",
+      "category":"Alkoholische-Getränke",
       "meal":"Augustiner Helles 0,5l",
       "desc1":null,
       "desc2":null,
@@ -649,7 +649,7 @@
    },
    {
       "id":55,
-      "category":"Alkoholische Getränke",
+      "category":"Alkoholische-Getränke",
       "meal":"Paulaner Weißbier 0,5l",
       "desc1":null,
       "desc2":null,
