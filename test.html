@@ -353,6 +353,30 @@
         .d-none {
             display: none;
         }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            /* Anpassung an die Bildschirmhöhe */
+        }
+
+        .section {
+            width: calc(100% - 300px);
+            /* adjust according to the width of aside */
+            overflow: auto;
+            height: 100%;
+            /* Anpassung an die Höhe des Elternelements */
+            padding: 1em;
+        }
+
+        .aside {
+            width: 300px;
+            height: 100vh;
+            overflow: auto;
+            padding: 1em;
+            position: fixed;
+            right: 0;
+        }
     </style>
 
 </head>
@@ -460,6 +484,24 @@
 
 
     </section>
+
+
+    <!DOCTYPE html>
+
+    <div class="container">
+        <div class="section">
+            <!-- Hier kommt der Inhalt der Section -->
+
+            <h1>Das ist eine überschrift</h1>
+        </div>
+        <div class="aside">
+            <!-- Hier kommt der Inhalt des Asides -->
+
+            <p>Das ist der Warenkorb.</p>
+        </div>
+    </div>
+
+
 
     <script>
 
