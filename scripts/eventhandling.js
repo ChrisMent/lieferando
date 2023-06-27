@@ -138,27 +138,29 @@ document.querySelectorAll('.headline-meal h2').forEach(element => {
 
 
 //! Suchleiste einblenden
+let searchShadow = document.querySelector('.restaurant-menu-nav');
+let openSearch = document.getElementById('search-modal-toggle');
+let closeSearch = document.getElementById('search-modal-toggle');
+
+
 function openSearchOverlay() {
-    let openSearch = document.getElementById('search-modal-toggle')
-    openSearch.classList.remove('d-none');
+  searchShadow.style.clipPath = 'none';
+  openSearch.classList.remove('d-none')
 }
 
 function closeSearchOverlay() {
-    let closeSearch = document.getElementById('search-modal-toggle')
-    closeSearch.classList.add('d-none');
-
+  // Füge hier den gewünschten Wert für den clip-path hinzu, wenn der Such-Overlay geschlossen wird
+  closeSearch.classList.add('d-none')
+    searchShadow.style.clipPath = 'inset(10px -10px -10px -10px)';
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Klickereignis für den Button zum Öffnen des Such-Overlays
+  document.getElementById('search-button').addEventListener('click', openSearchOverlay);
 
-
-function removeShadow(){
-  let searchActive = document.getElementById('search-modal-toggle')
-  let seachShadow = document.querySelector('.restaurant-menu-nav-shadow')
-
-
-
-
-}
+  // Klickereignis für den Button zum Schließen des Such-Overlays
+  document.getElementById('search-modal-close').addEventListener('click', closeSearchOverlay);
+});
 
 //! Schatten entfernen vom Menu
 
@@ -195,6 +197,7 @@ menuWrapper.addEventListener('scroll', function() {
     menuNav.classList.remove('has-shadow');
   }
 });
+
 
 //! Restaurant Menu rendern
 fetch("/lieferando/ressources/data.json")

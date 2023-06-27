@@ -35,6 +35,11 @@ body {
   padding: 0;
 }
 
+hr {
+  background-color: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.01);
+}
+
 /*------ Help Classes ------*/
 
 .spacer {
@@ -54,6 +59,10 @@ body {
   margin: 0 auto;
   width: 100%;
   padding: 0 16px 0 16px;
+}
+
+.clip-path-none {
+  clip-path: none !important;
 }
 
 /*------ Variables ------*/
@@ -492,6 +501,7 @@ main {
   z-index: 1000;
   background-color: #fff;
   width: 100%;
+  min-height: 70px;
 }
 
 .restaurant-menu-nav-shadow {
@@ -823,6 +833,9 @@ main {
 
 #modal-search-box {
   display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  background-color: #fff;
 }
 
 #modal-search-box:hover {
@@ -1033,6 +1046,45 @@ main {
   padding-top: 8px;
   font-size: 12px;
 }
+
+/*------ Imprint ------*/
+.restaurant-imprint {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.restaurant-imprint-headline {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px;
+}
+
+.restaurant-imprint-headline div {
+  margin-right: 12px;
+}
+
+.restaurant-imprint-headline img {
+  width: 24px;
+  height: 24px;
+}
+
+.restaurant-imprint-content {
+  line-height: 24px;
+}
+
+.restaurant-imprint-content a {
+  text-decoration: underline;
+}
+
+.imprint-extra-href_1 {
+  font-size: 12px;
+}
+
+.imprint-extra-href_2 {
+  text-decoration: none !important;
+}
+
 /*------ Warenkorb Desktop ------*/
 
 .basket-desktop {
@@ -1070,6 +1122,33 @@ main {
 
 .bsk-desk-content img {
   padding-bottom: 10px;
+}
+
+/*------ Scroll Top Button ------*/
+
+.scroll-top-element {
+  position: relative;
+}
+
+.scroll-top-button {
+  right: calc(2 * 8px);
+  bottom: calc(2 * 8px);
+  position: fixed;
+  border-radius: 100%;
+  border: none;
+  width: 56px;
+  height: 56px;
+  background-color: #fff;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.04),
+    0 8px 20px -3px rgba(0, 0, 0, 0.1), 0 4px 8px -2px rgba(0, 0, 0, 0.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000000;
+}
+
+.scroll-top-button img {
+  height: 38px;
 }
 
 /*------ Responsive ------*/
