@@ -149,6 +149,17 @@ function closeSearchOverlay() {
 
 }
 
+
+
+function removeShadow(){
+  let searchActive = document.getElementById('search-modal-toggle')
+  let seachShadow = document.querySelector('.restaurant-menu-nav-shadow')
+
+
+
+
+}
+
 //! Schatten entfernen vom Menu
 
 // Definieren Sie die IDs des Sentinel und des Containers, und die Ziel-Klasse
@@ -216,4 +227,6 @@ return response.json();
   })
 
 });
+
+
 

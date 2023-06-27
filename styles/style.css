@@ -836,8 +836,9 @@ main {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 80px;
   background-color: #fff;
+  transform: translatey(-30px);
   /* Optional: wenn Sie möchten, dass der Modal die gesamte Bildschirmhöhe einnimmt */
   z-index: 11;
   /* Stellen Sie sicher, dass es über .restaurant-menu-items liegt */
