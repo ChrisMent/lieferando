@@ -98,16 +98,16 @@ function closeMenuOverlay(){
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
       if (entry.isIntersecting) {
-          console.log(`Beobachtetes Element: ${entry.target.textContent}`); // Fügt eine Konsolenausgabe hinzu
+          //console.log(`Beobachtetes Element: ${entry.target.textContent}`); // Fügt eine Konsolenausgabe hinzu
           listItems.forEach(i => i.classList.remove('is--active'));
           const listItem = Array.from(listItems).find(i => i.textContent.trim() === entry.target.textContent.trim());
           if (listItem) {
               listItem.classList.add('is--active');
-              console.log(`is--active Klasse hinzugefügt zu: ${listItem.textContent}`); // Fügt eine Konsolenausgabe hinzu
+              //console.log(`is--active Klasse hinzugefügt zu: ${listItem.textContent}`); // Fügt eine Konsolenausgabe hinzu
               // Scrollt die horizontale Navigation zur Mitte des aktiven Elements
               scrollContent.scrollLeft = listItem.offsetLeft - scrollContent.clientWidth / 2 + listItem.clientWidth / 2;
           } else {
-              console.log(`Kein passendes Listenelement gefunden für: ${entry.target.textContent}`); // Fügt eine Konsolenausgabe hinzu
+              //console.log(`Kein passendes Listenelement gefunden für: ${entry.target.textContent}`); // Fügt eine Konsolenausgabe hinzu
           }
       }
   });
@@ -117,7 +117,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.headline-meal h2').forEach(element => {
   observer.observe(element);
-  console.log(`Beobachte Element: ${element.textContent}`); // Fügt eine Konsolenausgabe hinzu
+  //console.log(`Beobachte Element: ${element.textContent}`); // Fügt eine Konsolenausgabe hinzu
 });
 
 
@@ -231,5 +231,92 @@ return response.json();
 
 });
 
+//! Scroll to top Button
+
+document.addEventListener("DOMContentLoaded", function() {
+  var button = document.querySelector(".scroll-top-button");
+
+  // Hide the button initially
+  button.style.opacity = "0";
+  button.style.visibility = "hidden";
+
+  // Store the last scroll position
+  var lastScrollTop = 0;
+
+// Store the height of the footer
+var footerHeight = document.querySelector('footer').offsetHeight;
+
+// Define scroll function
+function checkScroll() {
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var windowHeight = window.innerHeight;
+  var bodyHeight = document.body.offsetHeight;
+  var footerHeight = document.querySelector('footer').offsetHeight;
+
+  // If the scroll position is more than 0, the user is scrolling down, and the user has not scrolled past the footer, show the button
+  if (scrollTop > 0 && scrollTop > lastScrollTop && scrollTop < bodyHeight - windowHeight - footerHeight) {
+      setTimeout(function() {
+          button.style.visibility = "visible";
+          button.style.opacity = "1";
+          button.style.transition = "opacity 0.5s linear";
+      }, 1000);
+  }
+  // Otherwise, hide the button immediately
+  else {
+      button.style.opacity = "0";
+      button.style.transition = "opacity 0.5s linear";
+      setTimeout(() => button.style.visibility = "hidden", 500);
+  }
+
+  // Update the last scroll position
+  lastScrollTop = scrollTop;
+}
+
+
+
+  // Add a scroll event listener to the window
+  window.addEventListener("scroll", checkScroll);
+
+  // Add a click event listener to the button
+  button.addEventListener("click", function() {
+      // When the button is clicked, scroll the window back to the top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // After clicking the button, hide it immediately
+      button.style.opacity = "0";
+      button.style.transition = "opacity 0.5s linear";
+      setTimeout(() => button.style.visibility = "hidden", 500);
+  });
+
+// Define resize function
+function checkResize() {
+  var windowWidth = window.innerWidth;
+ 
+  if (windowWidth > 1024) {
+      button.style.right = 360 + 'px'; // Adjust button's right position
+      button.style.bottom = "145px"; // Adjust button's bottom position
+      
+  } else {
+      button.style.right = "16px";
+      button.style.bottom = "145px";
+  }
+}
+
+// Add a resize event listener to the window
+window.addEventListener("resize", checkResize);
+
+// Run resize function once to set initial button position
+checkResize();
+
+
+
+
+
+  // Add a resize event listener to the window
+  window.addEventListener("resize", checkResize);
+
+  // Run resize function once to set initial button position
+  checkResize();
+});
 
 
