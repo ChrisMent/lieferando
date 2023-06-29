@@ -1178,6 +1178,130 @@ main {
   padding-bottom: 10px;
 }
 
+.basket-mobile-button {
+  background-color: #f36805;
+  color: #fff;
+  border-color: #f36805;
+  font-size: 19px;
+  min-height: calc(48px - calc(1px * 2));
+  padding: calc(calc(48px - calc(1px * 2)) / 2 - 28px / 2) 24px;
+  line-height: 28px;
+  border-radius: 50rem;
+  white-space: nowrap;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-flex;
+  border: 1px solid;
+  font-weight: 600;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  overflow: visible;
+  text-transform: none;
+  letter-spacing: 1.02px;
+}
+
+.basket-mobile-button-text {
+  color: #fff;
+  white-space: nowrap;
+}
+
+.basket-mobile-button-text-container {
+  align-items: center;
+  line-height: 1;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.basket-mobile-button-icon {
+  flex: 0 1 auto;
+  margin-right: 8px;
+}
+
+.basket-mobile-button-icon-span {
+  display: inline-flex;
+  position: relative;
+  color: #fff;
+  line-height: 1px;
+}
+
+.basket-mobile-button-icon-basket {
+  font-size: 26px;
+  pointer-events: none;
+  color: inherit;
+  display: inline-block;
+  position: relative;
+}
+
+.basket-mobile-button-icon-basket svg {
+  fill: #fff;
+}
+
+.basket-mobile-button-icon-count {
+  background-color: #262626;
+  border-radius: 8px;
+  font-size: 14px;
+  height: 16px;
+  line-height: 20;
+  min-width: 16px;
+  margin-top: -4px;
+  top: 0;
+  left: 0;
+  margin-left: -4px;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  align-items: center;
+  color: #fff;
+  cursor: default;
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  padding: 0 3px;
+  position: absolute;
+  z-index: 1;
+}
+
+.basket-mobile-button-amounth {
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+  line-height: 1;
+}
+
+.basket-mobile-button-amounth-spacer {
+  margin-right: 24px;
+}
+
+.basket-mobile-button-amounth-text {
+  text-align: center;
+}
+
+.basket-mobile-button-amounth-text-value {
+  white-space: nowrap;
+}
+
+/*------ Warenkorb Mobile ------*/
+
+.basket-mobile {
+  background: #fcfcfc;
+  border-top: 1px solid #efedea;
+  bottom: 0;
+  left: 0;
+  padding: 8px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.basket-mobile-inner-container {
+  padding-bottom: 24px;
+}
+
 /*------ Scroll Top Button ------*/
 
 .scroll-top-element {
@@ -1246,6 +1370,12 @@ main {
 @media only screen and (max-width: 720px) {
   #category-scroll-right,
   #category-scroll-left {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .basket-mobile {
     display: none;
   }
 }
