@@ -274,7 +274,7 @@
                                                 <div class="meals-list-box-headline">
                                                     <p>Manto</p>
                                                 </div>
-                                                <div class="meals-list-box-info">
+                                                <div data-open-modal class="meals-list-box-info">
                                                     <img src="/lieferando/img/exclamation.svg" alt="">
                                                 </div>
                                             </div>
@@ -313,7 +313,7 @@
                                                 <div class="meals-list-box-headline">
                                                     <p>Samarod plau</p>
                                                 </div>
-                                                <div class="meals-list-box-info">
+                                                <div data-open-modal class="meals-list-box-info">
                                                     <img src="/lieferando/img/exclamation.svg" alt="">
                                                 </div>
                                             </div>
@@ -356,7 +356,7 @@
                                                     <p>Goscht Sabzi
                                                     </p>
                                                 </div>
-                                                <div class="meals-list-box-info">
+                                                <div data-open-modal class="meals-list-box-info">
                                                     <img src="/lieferando/img/exclamation.svg" alt="">
                                                 </div>
                                             </div>
@@ -406,7 +406,7 @@
                                                 <div class="meals-list-box-headline">
                                                     <p class="meal">Manto</p>
                                                 </div>
-                                                <div class="meals-list-box-info">
+                                                <div data-open-modal class="meals-list-box-info">
                                                     <img src="/lieferando/img/exclamation.svg" alt="">
                                                 </div>
                                             </div>
@@ -796,9 +796,67 @@
 
     <footer w3-include-html="/lieferando/templates/footer.html"></footer>
 
+    <div data-modal class="modal-wrapper d-none">
+        <div class="modal-level_1">
+            <div class="modal-level_2">
+                <div class="modal-level_3">
+                    <div class="modal-nutrition-info-header">
+                        <div class="modal-nutrition-info-header-pos">
+                            <div class="modal-nutrition-info-header-pos-cont">
+                                <h2 class="headline-modal">
+                                    <span>
+                                        Weitere Produktinformationen
+                                    </span>
+                                </h2>
+                            </div>
+                        </div>
+
+
+                        <div data-close-modal class="modal-button-container">
+                            <span class="modal-button" role="button" tabindex="0" aria-label="Schließen">
+                                <span class="modal-icon">
+                                    <svg viewBox="0 0 16 16" width="1em" height="1em" role="presentation"
+                                        focusable="false" aria-hidden="false">
+                                        <path
+                                            d="M11.868 3.205L8 7.072 4.133 3.205l-.928.927L7.073 8l-3.868 3.867.928.928L8 8.927l3.868 3.868.927-.928L8.928 8l3.867-3.868-.927-.927z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="modal-content">
+                        <div class="modal-nutrition-info">
+                            <div class="modal-content-nutrition-container">
+                                <div class="modal-content-nutrition">
+                                    <h3 class="modal-content-nutrition-subheadline">Allergene</h3>
+                                    <ul>
+                                        <li class="modal-list">Leider sind keine relevanten Daten vorhanden!</li>
+                                    </ul>
+                                </div>
+                                <div class="modal-additional-text">
+                                    <div class="modal-additional-content">
+                                        Wir stellen dir stets relevante Informationen zur Verfügung, die wir von unseren
+                                        Partnern über deren Produkte erhalten. In einigen Fällen können die angezeigten
+                                        Informationen jedoch unvollständig, automatisch generiert und/oder noch nicht
+                                        von Kunden validiert worden sein. Bitte wende dich über dieses
+                                        <a class="modal-link" href="#"> Formular
+
+                                        </a>
+                                        an unseren Kundenservice, wenn du Allergien, Unverträglichkeiten oder Fragen zu
+                                        bestimmten Artikeln hast.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <script src="/lieferando/scripts/eventhandling.js"></script>
-
-
 </body>
 
 </html>

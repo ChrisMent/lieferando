@@ -308,15 +308,30 @@ window.addEventListener("resize", checkResize);
 // Run resize function once to set initial button position
 checkResize();
 
-
-
-
-
   // Add a resize event listener to the window
   window.addEventListener("resize", checkResize);
 
   // Run resize function once to set initial button position
   checkResize();
 });
+
+//! Nutrition Information Modal
+document.addEventListener('DOMContentLoaded', () => {
+  const openButtons = document.querySelectorAll('[data-open-modal]')
+  const closeButton = document.querySelector('[data-close-modal]')
+  const modal = document.querySelector('[data-modal]')
+
+  openButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      modal.classList.remove('d-none')
+    })
+  })
+
+  closeButton.addEventListener('click', () => {
+    modal.classList.add('d-none')
+  })
+})
+
+
 
 
