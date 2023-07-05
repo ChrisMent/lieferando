@@ -333,5 +333,346 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
+let pMeals = []; // Array, in das die p-Tags geschrieben werden
+        let pPrices = [];
+        let pAmounts = [];
 
+
+        //! Restaurant Menu rendern
+
+        fetch("/lieferando/ressources/data.json")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then((meals) => {
+                meals.forEach((meal) => {
+                    const containerId = meal.category.replace(/ /g, "");
+                    const container = document.getElementById(containerId);
+
+                    if (container) {
+                        const tmpl = document.getElementById('meal-card-template').content.cloneNode(true);
+
+                        tmpl.querySelector('.meal').innerText = meal.meal;
+                        tmpl.querySelector('.desc1').innerText = meal.desc1 ? meal.desc1 : '';
+                        tmpl.querySelector('.desc2').innerText = meal.desc2 ? meal.desc2 : '';
+                        tmpl.querySelector('.price').innerText = meal.price ? meal.price.toFixed(2).replace(".", ",") + " €" : '';
+                        tmpl.querySelector('.addInfo').innerText = meal.addInfo ? meal.addInfo : '';
+                        if (meal.img) tmpl.querySelector('.img').setAttribute('src', meal.img);
+
+                        container.appendChild(tmpl);
+                    }
+                });
+
+                // Nachdem die Mahlzeiten gerendert wurden, fügen Sie die Event-Listener hinzu
+                let mealElements = document.querySelectorAll('.meals-list-elements');
+
+                mealElements.forEach((mealElement) => {
+                    mealElement.addEventListener('click', function () {
+                        let pTagMeal = mealElement.querySelector('.meals-list-box-headline p');
+                        let pTagPrice = mealElement.querySelector('.meals-list-price-price p');
+                        let pMeal = pTagMeal.innerText;
+                        let pPrice = pTagPrice.innerText;
+                        let index = pMeals.indexOf(pMeal);
+                        if (index === -1) {
+                            // Das pMeal ist noch nicht in der Liste, also fügen wir es hinzu und setzen die Menge auf 1
+                            pMeals.push(pMeal);
+                            pPrices.push(pPrice);
+                            pAmounts.push(1);
+                        } else {
+                            // Das pMeal ist bereits in der Liste, also erhöhen wir die Menge an der entsprechenden Stelle
+                            pAmounts[index]++;
+                        }
+                        //console.log(pMeals, pPrices, pAmounts);
+                        saveBasket();
+                        renderBasket();
+                        renderSubtotal();
+                        renderShippingFee();
+                        renderDeliveryCosts();
+                        messageFreeDelivery();
+                        minOrderValue();
+                    });
+                });
+            })
+            .catch((error) => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+
+
+        //! Warenkorb rendern
+
+        function renderBasket() {
+            let basket = document.getElementById('basket');
+            let basketMessage = document.getElementById('basket-message');
+            let basketEmpty = document.getElementById('basket-aside')
+            basket.innerHTML = '';
+
+            if (pMeals.length === 0) {
+                // Wenn der Warenkorb leer ist, zeigen wir die Nachricht an
+                basketMessage.style.display = 'block';
+                basketEmpty.style.display = 'none';
+
+            } else {
+                // Der Warenkorb ist nicht leer, also fügen wir die Elemente hinzu
+                basketMessage.style.display = 'none';
+                basketEmpty.style.display = 'block';
+
+                for (let i = 0; i < pMeals.length; i++) {
+                    // Nur Elemente mit Menge > 0 hinzufügen
+                    if (pAmounts[i] > 0) {
+                        let price = parseFloat(pPrices[i].replace(',', '.'));
+                        let total = price * pAmounts[i];
+                        basket.innerHTML += `
+                        <div class="basket-card-position">   
+                             <div class="basket-card-group">
+                                <div>
+                                    <div class="basket-card-item-group">
+                                        <div class="basket-list">
+                                            <div class="basket-amount">
+                                                <strong>
+                                                    <span>${pAmounts[i]}</span>
+                                                </strong>
+                                            </div>
+
+                                            <div class="basket-attributes">
+                                                <div>
+                                                    <strong class="basket-meal-name">
+                                                        <span>${pMeals[i]}</span>
+                                                    </strong>
+                                                </div>
+                                                <div class="basket-attributes-2">
+                                                    <div >
+                                                        <span></span>
+                                                    </div>
+
+                                                    <div class="basket-item-prices">
+                                                        <span></span>
+                                                    </div>
+
+                                                    <div class="basket-item-total">
+                                                        <span>${total.toFixed(2).replace('.', ',')} €</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="basket-buttons">
+                                            <div class="basket-buttons-position">
+                                                <span class="basket-item-annotations">
+                                                    <span>Anmerkung
+                                                        hinzufügen</span>
+                                                </span>
+                                                <div class="basket-buttons-plus-minus">
+                                                    <div class="basket-buttons-plus-minus-position">
+                                                        <div class="basket-buttons-plus-minus-wrapper">
+                                                            <div class="basket-buttons-minus">
+                                                                <span onclick="basketRemove(${i})" id="basket-button-minus" class="basket-button-design">
+                                                                    <span>
+                                                                        <svg viewBox="0 0 16 16" width="1em" height="1em"
+                                                                            role="presentation" focusable="false"
+                                                                            aria-hidden="true">
+                                                                            <path
+                                                                                d="M14.125 7.344H1.875v1.312h12.25V7.344z">
+                                                                            </path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="basket-buttons-plus">
+                                                                <span onclick="basketAdd(${i})" id="basket-button-plus" class="basket-button-design">
+                                                                    <span>
+                                                                        <svg viewBox="0 0 16 16" width="1em" height="1em"
+                                                                            role="presentation" focusable="false"
+                                                                            aria-hidden="true">
+                                                                            <path
+                                                                                d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z">
+                                                                            </path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+            `;
+                    }
+                }
+            }
+            saveBasket();
+        }
+
+        //! Warenkorb speichern und laden
+
+        function saveBasket() {
+            localStorage.setItem('activeMealBasket', JSON.stringify(pMeals));
+            localStorage.setItem('activePriceBasket', JSON.stringify(pPrices));
+            localStorage.setItem('activeAmountBasket', JSON.stringify(pAmounts));
+        }
+
+
+        function loadBasket() {
+            // Lade die Daten aus dem localStorage und verwende sie, um die Variablen zu füllen
+            pMeals = JSON.parse(localStorage.getItem('activeMealBasket')) || [];
+            pPrices = JSON.parse(localStorage.getItem('activePriceBasket')) || [];
+            pAmounts = JSON.parse(localStorage.getItem('activeAmountBasket')) || [];
+        }
+
+        function init() {
+            loadBasket();
+            renderBasket();
+            renderSubtotal();
+            renderShippingFee();
+            renderDeliveryCosts();
+            messageFreeDelivery();
+            minOrderValue();
+
+        }
+
+        function basketAdd(i) {
+            pAmounts[i]++;
+            saveBasket();
+            loadBasket();
+            renderBasket();
+            renderSubtotal();
+            renderShippingFee();
+            renderDeliveryCosts();
+            messageFreeDelivery();
+            minOrderValue();
+        }
+
+
+        function basketRemove(i) {
+            pAmounts[i]--;
+            if (pAmounts[i] === 0) {
+                // Wenn die Menge 0 ist, entfernen wir das Element aus allen Arrays
+                pMeals.splice(i, 1);
+                pPrices.splice(i, 1);
+                pAmounts.splice(i, 1);
+            }
+            saveBasket();
+            loadBasket();
+            renderBasket();
+            renderSubtotal();
+            renderShippingFee();
+            renderDeliveryCosts();
+            messageFreeDelivery();
+            minOrderValue();
+        }
+
+        //! Artikelanzahl berechnen
+
+        let totalAmount = pAmounts.reduce((a, b) => a + b, 0);
+
+        function getTotalAmount() {
+            return pAmounts.reduce((a, b) => a + b, 0);
+        }
+
+        //! Gesamtsumme der Mahlzeiten berechnen
+
+        function getTotalSum() {
+            let totalSum = 0;
+            for (let i = 0; i < pAmounts.length; i++) {
+                let price = parseFloat(pPrices[i].replace(',', '.'));
+                totalSum += pAmounts[i] * price;
+            }
+            return totalSum;
+        }
+
+        function renderSubtotal() {
+            let amountSubTotal = document.getElementById('basketSubTotal')
+            let totalSum = getTotalSum();
+            amountSubTotal.innerText = totalSum.toFixed(2).replace('.', ',') + ' €';
+        }
+
+        let totalSum = getTotalSum();
+
+        //! Lieferkosten
+
+        let shippingCosts = 1.5
+        let minimumOrderValue = 15
+        let shippingFreeText = "Kostenlos"
+        let shippingFreeAmount = 50
+
+        function shippingFee() {
+            if (getTotalSum() > shippingFreeAmount) {
+                return 0;
+            } else {
+                return shippingCosts;
+            }
+        }
+
+        function shippingFeeDisplay() {
+            if (getTotalSum() > shippingFreeAmount) {
+                return shippingFreeText;
+            } else {
+                return shippingCosts.toFixed(2).replace('.', ',') + ' €';
+            }
+        }
+
+        function renderShippingFee() {
+            let shippingFeeElement = document.getElementById('basket-delivery');
+            shippingFeeElement.innerText = shippingFeeDisplay();
+        }
+
+
+        //! Gesamtsumme der Lieferung berechnen
+
+        function deliveryCosts() {
+            let summaryTotal = getTotalSum() + shippingFee();
+            return summaryTotal;
+        }
+
+        function renderDeliveryCosts() {
+            let deliveryCostElement = document.getElementById('basket-delivery-costs');
+            let deliveryCost = deliveryCosts();
+            deliveryCostElement.innerText = deliveryCost.toFixed(2).replace('.', ',') + ' €';
+        }
+
+        function messageFreeDelivery() {
+            let messageFreeDelivery = document.getElementById('message-free-delivery')
+            if (getTotalSum() > 50) {
+                messageFreeDelivery.style.display = "none"
+            } else {
+                messageFreeDelivery.style.display = "block"
+            }
+        }
+
+        //! Mindestbestellwert errechnen und Warenkorbbutton aktiv schalten
+
+        function minOrderValue() {
+            let restValue = minimumOrderValue - getTotalSum()
+            let minOrderAmount = document.getElementById('minimum-order-value')
+            let messageWrapper = document.getElementById('basket-message-wrapper')
+            let checkoutBtn = document.getElementById('checkout-button')
+            let span = checkoutBtn.querySelector('span')
+
+            if (getTotalSum() > minimumOrderValue) {
+                messageWrapper.style.display = "none"
+                checkoutBtn.disabled = false
+                checkoutBtn.classList.add('basket-order-button-active')
+                span.innerText = 'Bezahlen (' + deliveryCosts().toFixed(2).replace('.', ',') + ' €)';
+
+            } else {
+                messageWrapper.style.display = "block"
+                minOrderAmount.innerText = restValue.toFixed(2).replace('.', ',') + ' €';
+                checkoutBtn.disabled = true
+                checkoutBtn.classList.remove('basket-order-button-active')
+                span.innerText = 'Bezahlen (' + deliveryCosts().toFixed(2).replace('.', ',') + ' €)';
+
+            }
+
+
+        }
+
+        // Aufruf der init-Funktion
+        window.onload = init;
 

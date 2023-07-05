@@ -301,7 +301,7 @@
                                         <div class="meals-list-box-img">
                                             <img src="" alt="">
                                         </div>
-                                        <div class="meals-list-element-btn">
+                                        <div onclick="renderBasket()" class="meals-list-element-btn">
                                             <img src="/lieferando/img/plus.svg" alt="">
                                         </div>
 
@@ -342,7 +342,7 @@
                                         <div class="meals-list-box-img">
                                             <img src="" alt="">
                                         </div>
-                                        <div class="meals-list-element-btn">
+                                        <div onclick="renderBasket()" class="meals-list-element-btn">
                                             <img src="/lieferando/img/plus.svg" alt="">
                                         </div>
 
@@ -385,7 +385,7 @@
                                         <div class="meals-list-box-img">
                                             <img src="" alt="">
                                         </div>
-                                        <div class="meals-list-element-btn">
+                                        <div onclick="renderBasket()" class="meals-list-element-btn">
                                             <img src="/lieferando/img/plus.svg" alt="">
                                         </div>
 
@@ -404,7 +404,7 @@
 
                                             <div class="meals-list-element-head">
                                                 <div class="meals-list-box-headline">
-                                                    <p class="meal">Manto</p>
+                                                    <p class="meal"></p>
                                                 </div>
                                                 <div data-open-modal class="meals-list-box-info">
                                                     <img src="/lieferando/img/exclamation.svg" alt="">
@@ -412,7 +412,7 @@
                                             </div>
 
                                             <div class="meals-list-box-description_1">
-                                                <p class="desc1">mit Rindfleisch und Zwiebeln</p>
+                                                <p class="desc1"></p>
                                             </div>
 
                                             <div class="meals-list-box-description_2">
@@ -421,7 +421,7 @@
                                             <span style="margin-top: 4px; margin-bottom: 8px;"></span>
                                             <div class="meals-list-box-price">
                                                 <div class="meals-list-price-price">
-                                                    <p class="price">11,90 €</p>
+                                                    <p class="price"></p>
                                                 </div>
                                                 <div class="meals-list-additional-information">
                                                     <p class="addInfo">
@@ -433,7 +433,7 @@
                                         <div class="meals-list-box-img">
                                             <img class="img" src="" alt="">
                                         </div>
-                                        <div class="meals-list-element-btn">
+                                        <div onclick="renderBasket()" class="meals-list-element-btn">
                                             <img src="/lieferando/img/plus.svg" alt="">
                                         </div>
 
@@ -728,28 +728,201 @@
 
         <div class="spacer"></div>
 
-        <aside class="basket-desktop">
-            <div class="basket-sticky">
-                <div class="bsk-desk-head">
+        <div id="basket-message" class="basket-desktop">
+            <div class="bsk-desk-head">
+                <h2>Warenkorb</h2>
+            </div>
+            <div class="bsk-desk-content">
+                <div>
+                    <img src="/lieferando/img/shopping_bag.svg" alt="Warenkorb">
+                </div>
+                <div>
+                    <h2>Fülle deinen Warenkorb</h2><br>
+                </div>
+                <div>
+                    <p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p>
+                </div>
+            </div>
+        </div>
+
+        <aside id="basket-aside" class="basket-desktop">
+            <div>
+                <div class="basket-title">
                     <h2>Warenkorb</h2>
                 </div>
-                <div class="bsk-desk-content">
-                    <div>
-                        <img src="/lieferando/img/shopping_bag.svg" alt="Warenkorb">
-                    </div>
-                    <div>
-                        <h2>Fülle deinen Warenkorb</h2><br>
-                    </div>
-                    <div>
-                        <p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p>
-                    </div>
 
+                <div class="basket-items">
+                    <div class="basket-card">
+                        <div class="basket-card-margin">
+                            <div id="basket" class="basket-card-position">
+                                <div class="basket-card-group">
+                                    <div class="basket-card-item-group">
+                                        <div class="basket-list">
+                                            <div class="basket-amount">
+                                                <strong>
+                                                    <span>1</span>
+                                                </strong>
+                                            </div>
+
+                                            <div class="basket-attributes">
+                                                <div>
+                                                    <strong class="basket-meal-name">
+                                                        <span></span>
+                                                    </strong>
+                                                </div>
+                                                <div class="basket-attributes-2">
+                                                    <div class="basket-over-18">
+                                                        <span></span>
+                                                    </div>
+
+                                                    <div class="basket-item-prices">
+                                                        <span></span>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="basket-buttons">
+                                            <div class="basket-buttons-position">
+                                                <span class="basket-item-annotations">
+                                                    <span>Anmerkung
+                                                        hinzufügen</span>
+                                                </span>
+                                                <div class="basket-buttons-plus-minus">
+                                                    <div class="basket-buttons-plus-minus-position">
+                                                        <div class="basket-buttons-plus-minus-wrapper">
+                                                            <div class="basket-buttons-minus">
+                                                                <span class="basket-button-design">
+                                                                    <span>
+                                                                        <svg viewBox="0 0 16 16" width="1em"
+                                                                            height="1em" role="presentation"
+                                                                            focusable="false" aria-hidden="true">
+                                                                            <path
+                                                                                d="M14.125 7.344H1.875v1.312h12.25V7.344z">
+                                                                            </path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="basket-buttons-plus">
+                                                                <span class="basket-button-design">
+                                                                    <span>
+                                                                        <svg viewBox="0 0 16 16" width="1em"
+                                                                            height="1em" role="presentation"
+                                                                            focusable="false" aria-hidden="true">
+                                                                            <path
+                                                                                d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z">
+                                                                            </path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="basket-message-wrapper" class="basekt-order-calc-wrapper">
+                        <div class="basket-order-calc-content">
+                            <div class="basket-order-message">
+                                <div class="basket-order-message-alert">
+                                    <div class="basket-order-message-alert-wrapper">
+                                        <div class="basket-order-message-alert-wrapper2">
+                                            <div class="basket-order-message-alert-wrapper3">
+                                                <div>
+                                                    <div class="basket-order-message-alert-wrapper4">
+                                                        <span>Benötigter Betrag, um den Mindestbestellwert zu
+                                                            erreichen</span>
+                                                        <div>
+                                                            <div class="basket-order-message-flex-item">
+                                                                <span id="minimum-order-value"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class>
+                                <div class="basekt-order-info-wrapper">Leider kannst du noch nicht bestellen. Parwan
+                                    liefert
+                                    erst ab einem Mindestbestellwert von 15,00 € (exkl. Lieferkosten).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
-            </div>
+                <div class="basket-order-summary-wrapper">
+                    <div>
+                        <div class="basket-order-summary-container">
+                            <div class="basket-order-summary-count">
+                                <span class="basket-order-summary-count-text">x items in
+                                    basket</span>
+                                <div class="basket-order-summery-line">
+                                    <div class="basket-order-summery-design">
+                                        <span>
+                                            Zwischensumme
+                                        </span>
+                                        <span>
+                                            <span id="basketSubTotal" class="basket-order-summary-total">
 
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="basket-order-summery-line">
+                                    <div class="basket-order-summery-design">
+                                        <span>
+                                            Lieferkosten
+                                        </span>
+                                        <span>
+                                            <span>
+                                                <span id="basket-delivery" class="basket-order-summary-total">
 
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="basket-order-summery-line">
+                                    <div class="basket-order-summery-design">
+                                        <strong>
+                                            Gesamt
+                                        </strong>
+                                        <span>
+                                            <strong>
+                                                <span id="basket-delivery-costs" class="basket-order-summary-total">
+
+                                                </span>
+                                            </strong>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="basket-order-summery-line">
+                                    <div id="message-free-delivery" class="basket-order-summery-design"
+                                        style="margin-bottom:6px">
+                                        Kostenfreie Lieferung ab 50,00 €
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="checkout-button" type="button" disabled class="basket-order-button">
+                        <span>
+
+                        </span>
+                    </button>
+                </div>
         </aside>
 
         <div class="basket-mobile">
