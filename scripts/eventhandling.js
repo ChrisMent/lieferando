@@ -654,12 +654,17 @@ let pMeals = []; // Array, in das die p-Tags geschrieben werden
             let messageWrapper = document.getElementById('basket-message-wrapper')
             let checkoutBtn = document.getElementById('checkout-button')
             let span = checkoutBtn.querySelector('span')
+            let mobileValue = document.getElementById('basket-value-mobile')
+            let countItems = getTotalAmount()
+            let itemInsert = document.getElementById('count-items')
 
             if (getTotalSum() > minimumOrderValue) {
                 messageWrapper.style.display = "none"
                 checkoutBtn.disabled = false
                 checkoutBtn.classList.add('basket-order-button-active')
                 span.innerText = 'Bezahlen (' + deliveryCosts().toFixed(2).replace('.', ',') + ' €)';
+                mobileValue.innerText = deliveryCosts().toFixed(2).replace('.', ',') + ' €';
+                itemInsert.innerText = countItems.toString()
 
             } else {
                 messageWrapper.style.display = "block"
@@ -667,6 +672,8 @@ let pMeals = []; // Array, in das die p-Tags geschrieben werden
                 checkoutBtn.disabled = true
                 checkoutBtn.classList.remove('basket-order-button-active')
                 span.innerText = 'Bezahlen (' + deliveryCosts().toFixed(2).replace('.', ',') + ' €)';
+                mobileValue.innerText = deliveryCosts().toFixed(2).replace('.', ',') + ' €';
+                itemInsert.innerText = countItems.toString()
 
             }
 
