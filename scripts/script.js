@@ -1,6 +1,5 @@
-function init() {
-    includeHTML();
-
+function initHTML() {
+    return includeHTML();
 }
 
 //! Header und Footer in index.html laden
@@ -18,5 +17,6 @@ async function includeHTML() {
         }
     }
 }
+
 
 

@@ -1,3 +1,17 @@
+async function initHTML() {
+    let includeElements = document.querySelectorAll("[w3-include-html]");
+    for (let i = 0; i < includeElements.length; i++) {
+        const element = includeElements[i];
+        file = element.getAttribute("w3-include-html"); // "includes/header.html"
+        let resp = await fetch(file);
+        if (resp.ok) {
+            element.innerHTML = await resp.text();
+        } else {
+            element.innerHTML = "Page not found";
+        }
+    }
+}
+
 function openMenuOverlay(){
     const menuOverlay = document.getElementById('menu-overlay');
     menuOverlay.classList.toggle('hidden');
@@ -200,6 +214,7 @@ menuWrapper.addEventListener('scroll', function() {
 
 
 //! Restaurant Menu rendern
+initHTML().then(() => {
 fetch("/lieferando/ressources/data.json")
 .then((response) => {
 return response.json();
@@ -230,6 +245,7 @@ return response.json();
   })
 
 });
+})
 
 //! Scroll to top Button
 
@@ -339,7 +355,7 @@ let pMeals = []; // Array, in das die p-Tags geschrieben werden
 
 
         //! Restaurant Menu rendern
-
+initHTML().then(() => {
         fetch("/lieferando/ressources/data.json")
             .then((response) => {
                 if (!response.ok) {
@@ -399,7 +415,7 @@ let pMeals = []; // Array, in das die p-Tags geschrieben werden
             .catch((error) => {
                 console.error('There has been a problem with your fetch operation:', error);
             });
-
+})
 
         //! Warenkorb rendern
 
@@ -526,7 +542,7 @@ let pMeals = []; // Array, in das die p-Tags geschrieben werden
             pAmounts = JSON.parse(localStorage.getItem('activeAmountBasket')) || [];
         }
 
-        function init() {
+        function initBasket() {
             loadBasket();
             renderBasket();
             renderSubtotal();
@@ -680,6 +696,18 @@ let pMeals = []; // Array, in das die p-Tags geschrieben werden
 
         }
 
-        // Aufruf der init-Funktion
-        window.onload = init;
+        //! Aufruf der init-Funktion
+
+        window.onload = initBasket;
+
+
+        //! Modal für mobile Warenkorb
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("basket-value-mobile").addEventListener("click", function() {
+        let basket = document.getElementById("basket-aside");
+        basket.classList.toggle('modal-basket');
+    });
+});
+
 

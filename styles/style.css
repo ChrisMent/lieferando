@@ -1176,42 +1176,6 @@ main {
   padding-bottom: 10px;
 }
 
-.basket-desktop {
-  width: 344px;
-  height: 100vh;
-  overflow: auto;
-  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.02),
-    0px 2px 12px -2px rgba(0, 0, 0, 0.08), 0px 3px 6px 0px rgba(0, 0, 0, 0.06);
-  z-index: 1000;
-  position: sticky;
-  top: 0;
-}
-
-.bsk-desk-head {
-  display: flex;
-  flex-shrink: 0;
-  justify-content: center;
-  padding: 24px 0px;
-  color: #242e30;
-}
-
-.bsk-desk-content {
-  color: #242e30;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding-top: 50px;
-  padding-bottom: 80px;
-  padding-right: 16px;
-  padding-left: 16px;
-}
-
-.bsk-desk-content img {
-  padding-bottom: 10px;
-}
-
 .basket-title {
   display: flex;
   flex-shrink: 0;
@@ -1887,8 +1851,20 @@ main {
     justify-content: flex-start;
   }
 
-  .basket-desktop {
-    display: none;
+  #basket-desktop {
+    display: none; /* standardmäßig ausgeblendet */
+  }
+
+  .modal-basket {
+    display: block; /* wird angezeigt, wenn der Warenkorb-Button geklickt wird */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    overflow: auto;
+    /* Weitere Stylingeinstellungen für das Modal, z.B. Boxschatten, Padding etc. */
   }
 
   .main-content {
