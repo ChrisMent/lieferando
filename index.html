@@ -731,6 +731,7 @@
             <div class="bsk-desk-head">
                 <h2>Warenkorb</h2>
             </div>
+
             <div class="bsk-desk-content">
                 <div>
                     <img src="/lieferando/img/shopping_bag.svg" alt="Warenkorb">
@@ -746,10 +747,15 @@
 
         <aside id="basket-aside" class="basket-desktop">
             <div>
-                <div class="basket-title">
-                    <h2>Warenkorb</h2>
-                </div>
+                <div class="mobile-basket-first-line">
+                    <div class="basket-title">
+                        <h2>Warenkorb</h2>
+                    </div>
 
+                    <div onclick="closeMobilModal()" id="basket-close-modal" class="basket-mobile-close">
+                        <img src="/lieferando/img/close.svg" alt="close cart">
+                    </div>
+                </div>
                 <div class="basket-items">
                     <div class="basket-card">
                         <div class="basket-card-margin">
@@ -926,7 +932,7 @@
 
         <div class="basket-mobile">
             <div class="basket-mobile-inner-container">
-                <button type="button" class="basket-mobile-button">
+                <button id="mobil-click" type="button" class="basket-mobile-button">
                     <span class="basket-mobile-button-text">
                         <div class="basket-mobile-button-text-container">
                             <div class="basket-mobile-button-icon">

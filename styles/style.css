@@ -1205,11 +1205,12 @@ main {
 }
 
 .basket-card-position {
-  padding-left: 24px;
+  padding-left: 12px;
   position: relative;
   padding-bottom: 14px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   padding-top: 14px;
+  padding-right: 12px;
 }
 
 .basket-card-position:last-child {
@@ -1221,9 +1222,9 @@ main {
 }
 
 .basket-amount {
-  left: 0px;
+  left: -10px;
   position: absolute;
-  top: 14px;
+  top: 12px;
   color: #242e30;
   font-size: 16px;
 }
@@ -1633,6 +1634,36 @@ main {
   padding-bottom: 24px;
 }
 
+.basket-mobile-close {
+  top: 16px;
+  right: 32px;
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  height: 36px;
+  width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.basket-mobile-close img {
+  width: 30px;
+  height: 30px;
+}
+
+.basket-mobile-close:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.basket-mobile-close:active {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.mobile-basket-first-line {
+  display: flex;
+}
+
 /*------ Scroll Top Button ------*/
 
 .scroll-top-element {
@@ -1864,13 +1895,27 @@ main {
     height: 100%;
     background-color: white;
     overflow: auto;
+    z-index: 9999;
+    padding-right: 14px;
     /* Weitere Stylingeinstellungen für das Modal, z.B. Boxschatten, Padding etc. */
+  }
+
+  .basket-title {
+    justify-content: left;
+    padding: 24px 38px 0;
+    width: 100%;
   }
 
   .main-content {
     max-width: 100%;
   }
 
+  .basket-order-summary-wrapper {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    width: 100%;
+  }
   .restaurant-main {
     margin-left: 0;
   }

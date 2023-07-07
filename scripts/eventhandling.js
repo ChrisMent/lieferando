@@ -704,10 +704,16 @@ initHTML().then(() => {
         //! Modal für mobile Warenkorb
 
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("basket-value-mobile").addEventListener("click", function() {
-        let basket = document.getElementById("basket-aside");
-        basket.classList.toggle('modal-basket');
+    
+    document.getElementById("mobil-click").addEventListener("click", function() {
+        let basket = document.getElementById("basket-aside")
+        basket.classList.add('modal-basket');         
     });
-});
+   }); 
 
+   function closeMobilModal(){
+    let basket = document.getElementById("basket-aside")
+    basket.classList.remove('modal-basket');  
+
+   }
 
