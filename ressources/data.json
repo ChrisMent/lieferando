@@ -181,7 +181,7 @@
    },
    {
       "id":16,
-      "category":"Rindfleisch-Spezialitäten",
+      "category":"Rindfleisch-Spezialitaeten",
       "meal":"Kofta Qabeli",
       "desc1":"mit gebackenem braunem Basmatireis, Rosinen, Mandeln und Karottenstreifen",
       "desc2":null,
@@ -193,7 +193,7 @@
    },
    {
       "id":17,
-      "category":"Rindfleisch-Spezialitäten",
+      "category":"Rindfleisch-Spezialitaeten",
       "meal":"Kofta Naren",
       "desc1":"mit gesüßtem Safranreis, Mandeln und Orangenschalen",
       "desc2":null,

@@ -110,33 +110,33 @@ function closeMenuOverlay(){
 //! Observer Intersection
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-          //console.log(`Beobachtetes Element: ${entry.target.textContent}`); // Fügt eine Konsolenausgabe hinzu
-          listItems.forEach(i => i.classList.remove('is--active'));
-          const listItem = Array.from(listItems).find(i => i.textContent.trim() === entry.target.textContent.trim());
-          if (listItem) {
-              listItem.classList.add('is--active');
-              //console.log(`is--active Klasse hinzugefügt zu: ${listItem.textContent}`); // Fügt eine Konsolenausgabe hinzu
-              // Scrollt die horizontale Navigation zur Mitte des aktiven Elements
-              scrollContent.scrollLeft = listItem.offsetLeft - scrollContent.clientWidth / 2 + listItem.clientWidth / 2;
-          } else {
-              //console.log(`Kein passendes Listenelement gefunden für: ${entry.target.textContent}`); // Fügt eine Konsolenausgabe hinzu
-          }
+        const targetText = entry.target.textContent.trim().toLowerCase();
+        //console.log(`Beobachtetes Element: ${targetText}`);
+        listItems.forEach(i => i.classList.remove('is--active'));
+        const listItem = Array.from(listItems).find(i => i.textContent.trim().toLowerCase() === targetText || i.id.toLowerCase() === targetText.replace(/ /g, "-").replace(/\u00E4/g, "a"));
+        if (listItem) {
+          listItem.classList.add('is--active');
+          //console.log(`is--active Klasse hinzugefügt zu: ${listItem.textContent}`);
+          scrollContent.scrollLeft = listItem.offsetLeft - scrollContent.clientWidth / 2 + listItem.clientWidth / 2;
+        } else {
+          //console.log(`Kein passendes Listenelement gefunden für: ${targetText}`);
+        }
       }
+    });
+  }, {
+    threshold: 0.5
   });
-}, {
-  threshold: 0.5
-});
-
-document.querySelectorAll('.headline-meal h2').forEach(element => {
-  observer.observe(element);
-  //console.log(`Beobachte Element: ${element.textContent}`); // Fügt eine Konsolenausgabe hinzu
-});
-
-
-
-
+  
+  document.querySelectorAll('.headline-meal h2').forEach(element => {
+    observer.observe(element);
+    //console.log(`Beobachte Element: ${element.textContent}`);
+  });
+  
+  
+  
+  
 //! Button visibility
 
   scrollContent.addEventListener('scroll', checkButtonVisibility);
@@ -165,7 +165,7 @@ function openSearchOverlay() {
 function closeSearchOverlay() {
   // Füge hier den gewünschten Wert für den clip-path hinzu, wenn der Such-Overlay geschlossen wird
   closeSearch.classList.add('d-none')
-    searchShadow.style.clipPath = 'inset(10px -10px -10px -10px)';
+    
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -211,41 +211,6 @@ menuWrapper.addEventListener('scroll', function() {
     menuNav.classList.remove('has-shadow');
   }
 });
-
-
-//! Restaurant Menu rendern
-initHTML().then(() => {
-fetch("/lieferando/ressources/data.json")
-.then((response) => {
-return response.json();
-})
-.then((meals) => {
-
-  meals.forEach((meal) => {
-
-    // Erstellen Sie eine Variable für den Container basierend auf der Kategorie des aktuellen Elements
-    const containerId = meal.category.replace(/ /g, ""); // Entfernen Sie Leerzeichen aus dem Kategorienamen, um eine gültige ID zu erhalten
-    const container = document.getElementById(containerId);
-
-    // Überprüfen Sie, ob der Container existiert, bevor Sie Elemente hinzufügen
-    if (container) {
-
-      const tmpl = document.getElementById('meal-card-template').content.cloneNode(true);
-
-      tmpl.querySelector('.meal').innerText = meal.meal;
-      tmpl.querySelector('.desc1').innerText = meal.desc1 ? meal.desc1 : '';
-      tmpl.querySelector('.desc2').innerText = meal.desc2 ? meal.desc2 : '';
-      tmpl.querySelector('.price').innerText = meal.price ? meal.price.toFixed(2).replace(".", ",") + " €" : '';
-      tmpl.querySelector('.addInfo').innerText = meal.addInfo ? meal.addInfo : '';
-      if (meal.img) tmpl.querySelector('.img').setAttribute('src', meal.img);
-
-      container.appendChild(tmpl);
-    }
-
-  })
-
-});
-})
 
 //! Scroll to top Button
 
@@ -409,6 +374,7 @@ initHTML().then(() => {
                         renderDeliveryCosts();
                         messageFreeDelivery();
                         minOrderValue();
+                        updateDisplay()
                     });
                 });
             })
@@ -416,6 +382,33 @@ initHTML().then(() => {
                 console.error('There has been a problem with your fetch operation:', error);
             });
 })
+
+        //! Warenkorbbutton mobile Ansicht
+
+        function updateDisplay() {
+            let itemInBasket = parseInt(document.getElementById('count-items').innerText);
+            let mobileBasketDisplay = document.getElementById('overlay-mobile-view');
+            //console.log('Warenkorb:' + itemInBasket);
+          
+            if (itemInBasket < 1) {
+              mobileBasketDisplay.classList.add("hidden");
+            } else {
+              mobileBasketDisplay.classList.remove("hidden");
+            }
+        
+            //console.log('Klassen nach Änderung:', mobileBasketDisplay.className);
+        }
+
+        // Fügen Sie die Funktion als Event-Listener für das 'load'-Event hinzu
+        window.addEventListener('load', updateDisplay);
+
+        // Fügen Sie die Funktion als Event-Listener für das 'click'-Event hinzu
+        // für alle Elemente, die die Klasse 'clickable-element' haben
+        let clickableElements = document.getElementsByClassName('meals-list-element-btn');
+        for (let i = 0; i < clickableElements.length; i++) {
+            clickableElements[i].addEventListener('click', updateDisplay);
+        }
+
 
         //! Warenkorb rendern
 
@@ -524,6 +517,7 @@ initHTML().then(() => {
                 }
             }
             saveBasket();
+            updateDisplay();
         }
 
         //! Warenkorb speichern und laden
@@ -550,6 +544,7 @@ initHTML().then(() => {
             renderDeliveryCosts();
             messageFreeDelivery();
             minOrderValue();
+            updateDisplay();
 
         }
 
@@ -563,6 +558,7 @@ initHTML().then(() => {
             renderDeliveryCosts();
             messageFreeDelivery();
             minOrderValue();
+            updateDisplay();
         }
 
 
@@ -582,6 +578,7 @@ initHTML().then(() => {
             renderDeliveryCosts();
             messageFreeDelivery();
             minOrderValue();
+            updateDisplay();
         }
 
         //! Artikelanzahl berechnen
@@ -696,9 +693,10 @@ initHTML().then(() => {
 
         }
 
-        //! Aufruf der init-Funktion
 
-        window.onload = initBasket;
+        //! Einblenden mobiler Warenkorb-Button
+
+        window.addEventListener('load', initBasket);     
 
 
         //! Modal für mobile Warenkorb
@@ -717,3 +715,118 @@ document.addEventListener("DOMContentLoaded", function() {
 
    }
 
+   //! Suchfunktion für die Mahlzeiten
+
+   let mealsData = [];
+
+   // Daten beim Laden der Seite fetchen und speichern
+   window.onload = function() {
+    // Daten beim Laden der Seite fetchen und speichern
+    fetch("/lieferando/ressources/data.json")
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then((meals) => {
+            mealsData = meals;
+            // Initialisieren Sie den Warenkorb hier
+            initBasket();
+            // Rufen Sie die renderBasket Funktion auf, nachdem die Daten geladen wurden
+            renderBasket();
+        });
+}
+   
+   // Referenz auf das Suchfeld
+   const searchField = document.getElementById('search-meals');
+   
+   function renderMeals(meals) {
+       // Leeren der aktuellen Anzeige
+       document.querySelectorAll('.restaurant-meals-headlines div[id]').forEach((div) => {
+           div.innerHTML = '';
+       });
+   
+       // Anzeigen der Mahlzeiten
+       meals.forEach((meal) => {
+           const containerId = meal.category.replace(/ /g, "");
+           const container = document.getElementById(containerId);
+   
+           if (container) {
+               const tmpl = document.getElementById('meal-card-template').content.cloneNode(true);
+   
+               tmpl.querySelector('.meal').innerText = meal.meal;
+               tmpl.querySelector('.desc1').innerText = meal.desc1 ? meal.desc1 : '';
+               tmpl.querySelector('.desc2').innerText = meal.desc2 ? meal.desc2 : '';
+               tmpl.querySelector('.price').innerText = meal.price ? meal.price.toFixed(2).replace(".", ",") + " €" : '';
+               tmpl.querySelector('.addInfo').innerText = meal.addInfo ? meal.addInfo : '';
+               if (meal.img) tmpl.querySelector('.img').setAttribute('src', meal.img);
+   
+               container.appendChild(tmpl);
+               container.parentElement.querySelector('.restaurant-search-remove').classList.remove('d-none');
+           }
+       });
+   
+       // Verstecken der Kategoriebilder
+       document.querySelectorAll('.restaurant-search-remove').forEach((div) => {
+           div.classList.add('d-none');
+       });
+   
+       // Nachdem die Mahlzeiten gerendert wurden, fügen Sie die Event-Listener hinzu
+       let mealElements = document.querySelectorAll('.meals-list-elements');
+   
+       mealElements.forEach((mealElement) => {
+           mealElement.addEventListener('click', function () {
+               let pTagMeal = mealElement.querySelector('.meals-list-box-headline p');
+               let pTagPrice = mealElement.querySelector('.meals-list-price-price p');
+               let pMeal = pTagMeal.innerText;
+               let pPrice = pTagPrice.innerText;
+               let index = pMeals.indexOf(pMeal);
+               if (index === -1) {
+                   // Das pMeal ist noch nicht in der Liste, also fügen wir es hinzu und setzen die Menge auf 1
+                   pMeals.push(pMeal);
+                   pPrices.push(pPrice);
+                   pAmounts.push(1);
+               } else {
+                   // Das pMeal ist bereits in der Liste, also erhöhen wir die Menge an der entsprechenden Stelle
+                   pAmounts[index]++;
+               }
+               //console.log(pMeals, pPrices, pAmounts);
+               saveBasket();
+               renderBasket();
+               renderSubtotal();
+               renderShippingFee();
+               renderDeliveryCosts();
+               messageFreeDelivery();
+               minOrderValue();
+               updateDisplay();
+           });
+       });
+   }
+   
+   //! Suche und Filter
+
+   // Event-Listener für das Suchfeld
+   searchField.addEventListener('keyup', function(event) {
+       // Suchbegriff aus dem Suchfeld holen
+       const searchTerm = event.target.value.toLowerCase();
+   
+       // Filtern der Mahlzeiten basierend auf dem Suchbegriff
+       const filteredMeals = mealsData.filter((meal) => {
+           // Überprüfen, ob die Kategorie der Mahlzeit nicht "Beliebt" ist
+           if (meal.category.toLowerCase() !== "beliebt") {
+               return meal.meal.toLowerCase().includes(searchTerm);
+           }
+       });
+   
+       // Rendern der gefilterten Mahlzeiten
+       renderMeals(filteredMeals);
+   
+       // Wenn das Suchfeld leer ist, entfernen Sie die Klasse 'd-none' von den Elementen
+       if (searchTerm === '') {
+           document.querySelectorAll('.restaurant-search-remove').forEach((div) => {
+               div.classList.remove('d-none');
+           });
+       }
+   });
+   
